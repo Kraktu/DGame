@@ -15,11 +15,9 @@ public enum Theme
 public class CardSO : ScriptableObject
 {
 	public string CardName = "DefaultSentenceName";
-	public string CardText;
 	public Sprite backgroundImage;
 	public Color backgroundColor;
 	public int minLevel = 0, maxLevel = 10;
-	//public float factor;
 	public Theme theme;
 
 }

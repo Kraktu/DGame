@@ -13,7 +13,6 @@ public class BottomsUpScript : MonoBehaviour
 	private void Start()
 	{
 		GameManager.Instance.StartDelock();
-		Debug.Log("call");
 	}
 	public void WriteInfo()
 	{

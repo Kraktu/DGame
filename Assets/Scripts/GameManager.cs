@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     public int level;
     public DrinkRouletteScript drinkRouletteGO;
     public BottomsUpScript bottomsUpGO;
+    public TruthOrDare truthOrDareGO;
+
+    public List<TruthOrDareSO> truthOrDareSOs = new List<TruthOrDareSO>();
+    public int RouletteOccurencePercent = 25;
 
     public bool isCurrentlyPlaying=false;
     public float delockTime=2;
@@ -47,6 +51,7 @@ public class GameManager : MonoBehaviour
             players[i].UpdateStock();
 		}
 
+
     }
 
     // Update is called once per frame
@@ -56,7 +61,14 @@ public class GameManager : MonoBehaviour
 		{
             if(!isCurrentlyPlaying)
 		    {
-                StartAGame(drinkRouletteGO.gameObject);
+                if(Random.Range(1,101)<RouletteOccurencePercent)
+				{
+                    StartAGame(drinkRouletteGO.gameObject);
+				}
+				else
+				{
+                    StartAGame(truthOrDareGO.gameObject);
+				}
 		    }
 		}
     }
