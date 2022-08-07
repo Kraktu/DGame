@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
     public List<string> playersName = new List<string>();
     [HideInInspector]
     public int level;
-    public DrinkRouletteScript DrinkRouletteGO;
-    [HideInInspector]
+    public DrinkRouletteScript drinkRouletteGO;
+    public BottomsUpScript bottomsUpGO;
+
     public bool isCurrentlyPlaying=false;
     public float delockTime=2;
     public Canvas mainGameCanvas;
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
 		for (int i = 0; i < players.Count; i++)
 		{
             playersName.Add(players[i].playerName);
+            players[i].UpdateStock();
 		}
 
     }
@@ -54,10 +56,7 @@ public class GameManager : MonoBehaviour
 		{
             if(!isCurrentlyPlaying)
 		    {
-
-                Destroy(currentGameGO);
-                currentGameGO=Instantiate(DrinkRouletteGO,mainGameCanvas.transform).gameObject;
-                isCurrentlyPlaying = true;
+                StartAGame(drinkRouletteGO.gameObject);
 		    }
 		}
     }
@@ -77,7 +76,7 @@ public class GameManager : MonoBehaviour
             yield return null;
 		}
         isCurrentlyPlaying = false;
-
+        CheckStocks();
     }
 
     void CheckStocks()
@@ -91,8 +90,21 @@ public class GameManager : MonoBehaviour
 			}
 		}
 	}
-    public void BottomsUp(Player designatedPlayer)
+    public void BottomsUp(Player _designatedPlayer)
 	{
+         StartAGame(bottomsUpGO.gameObject);
+        BottomsUpScript _bu = currentGameGO.GetComponent<BottomsUpScript>();
+        _bu.nameString = _designatedPlayer.playerName;
+        _designatedPlayer.stock = 0;
+        _designatedPlayer.UpdateStock();
+        _bu.WriteInfo();
        
-	}
+    }
+
+    public void StartAGame(GameObject _goToInstanciate)
+	{
+        Destroy(currentGameGO);
+        isCurrentlyPlaying = true;
+        currentGameGO = Instantiate(_goToInstanciate, mainGameCanvas.transform).gameObject;
+    }
 }

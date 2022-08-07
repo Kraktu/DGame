@@ -539,12 +539,12 @@ MonoBehaviour:
   numberText: {fileID: 5154961833375684728}
   background: {fileID: 6844310322309774342}
   actionPossibilities:
-  - actionName: Drink
+  - actionName: 2
     backgroundColor: {r: 0.41509432, g: 0, b: 0, a: 1}
-  - actionName: Give
+  - actionName: 3
     backgroundColor: {r: 0.10663414, g: 0.41568628, b: 0, a: 1}
-  - actionName: Stock
+  - actionName: 0
     backgroundColor: {r: 0.6792453, g: 0.35782078, b: 0, a: 1}
-  - actionName: Destock
+  - actionName: 1
     backgroundColor: {r: 0.6698113, g: 0.6225305, b: 0, a: 1}
   animTime: 2

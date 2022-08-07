@@ -4,10 +4,16 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+public enum ActionName{
+	Stock,
+	Destock,
+	Drink,
+	Give
+}
 [System.Serializable]
 public struct Action
 {
-    public string actionName;
+    public ActionName actionName;
     public Color backgroundColor;
 }
     public class DrinkRouletteScript : MonoBehaviour
@@ -24,7 +30,7 @@ public struct Action
 	{
 		for (int i = 0; i < actionPossibilities.Count; i++)
 		{
-			actionNames.Add(actionPossibilities[i].actionName);
+			actionNames.Add(actionPossibilities[i].actionName.ToString());
 
 		}
 		for (int i = 0; i < GameManager.Instance.level; i++)
@@ -36,7 +42,7 @@ public struct Action
 		actionAnim = StartCoroutine(TextAnimScrolling(actionText,actionNames,animTime*3,true));
 	}
 
-	IEnumerator TextAnimScrolling(TextMeshProUGUI _displayTM, List<string> _possibilities, float _animTime = 2, bool _changeBackground = false)
+	IEnumerator TextAnimScrolling(TextMeshProUGUI _displayTM, List<string> _possibilities, float _animTime = 2, bool _endOfSequence = false)
 	{
 		float _startingTime = 0, _currentTime=_startingTime;
 		float _startingSpeed = 10, _currentSpeed=_startingSpeed;
@@ -65,8 +71,19 @@ public struct Action
 
 		int _chosenNumber = Random.Range(0, _possibilities.Count);
 		_displayTM.text = _possibilities[_chosenNumber];
-		if(_changeBackground)
+		if(_displayTM.text==ActionName.Destock.ToString())
 		{
+			for (int i = 0; i < GameManager.Instance.players.Count; i++)
+			{
+				if (nameText.text==GameManager.Instance.players[i].playerName && GameManager.Instance.players[i].stock==0)
+				{
+					_displayTM.text = ActionName.Stock.ToString();
+				} 
+			}
+		}
+		if(_endOfSequence)
+		{
+			ChangeStock();
 			ChangeBackground();
 		}
 	}
@@ -75,13 +92,32 @@ public struct Action
 	{
 		for (int i = 0; i < actionPossibilities.Count; i++)
 		{
-			if(actionPossibilities[i].actionName==actionText.text)
+			if(actionPossibilities[i].actionName.ToString()==actionText.text)
 			{
 				background.color = actionPossibilities[i].backgroundColor;
 				GameManager.Instance.StartDelock();
 				return;
 			}
-
+		}
+	}
+	void ChangeStock()
+	{
+		if (actionText.text == ActionName.Stock.ToString() || actionText.text == ActionName.Destock.ToString())
+		{
+			for (int i = 0; i < GameManager.Instance.players.Count; i++)
+			{
+				if(GameManager.Instance.players[i].playerNameText.text==nameText.text)
+				{
+					if(actionText.text == ActionName.Stock.ToString())
+					{
+						GameManager.Instance.players[i].ChangeStock(int.Parse(numberText.text));
+					}
+					else
+					{
+						GameManager.Instance.players[i].ChangeStock(-int.Parse(numberText.text));
+					}
+				}
+			}
 		}
 	}
 }
