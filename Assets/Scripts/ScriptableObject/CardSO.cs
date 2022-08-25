@@ -8,7 +8,9 @@ public enum Theme
 	Sexy,
 	Knowledge,
 	Fun,
-	Life,
+	Experience,
+	Sport,
+	Drink,
 }
 
 [CreateAssetMenu(fileName = "CardData", menuName = "ScriptableObjects/CardSO")]

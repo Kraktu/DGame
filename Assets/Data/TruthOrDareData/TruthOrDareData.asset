@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b770493abf9dab941ada4529bb7377f2, type: 3}
-  m_Name: IHaveNever
+  m_Name: TruthOrDareData
   m_EditorClassIdentifier: 
   CardName: DefaultSentenceName
   backgroundImage: {fileID: 0}
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
   minLevel: 0
   maxLevel: 10
-  theme: 4
-  structuredText: "Si tu n'as jamais saut\xE9 en parachute bois [factor] gorg\xE9es"
-  factor: 0.3
+  theme: 0
+  structuredText: 
+  factor1: 0
+  factor2: 0
   x1: 0
   x2: 0
   y1: 0

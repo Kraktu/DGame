@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b770493abf9dab941ada4529bb7377f2, type: 3}
+  m_Name: Telekinesie
+  m_EditorClassIdentifier: 
+  CardName: DefaultSentenceName
+  backgroundImage: {fileID: 0}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  minLevel: 0
+  maxLevel: 10
+  theme: 3
+  structuredText: "[name] et [name], dites en m\xEAme temps un nombre entre [x] et
+    [y] . Si vous dites le m\xEAme chiffre, tout le monde bois [factor] shots sauf
+    vous. Si pas, buvez la diff\xE9rence entre vos 2 chiffres."
+  factor1: 0.1
+  factor2: 0.3
+  x1: 15
+  x2: 27
+  y1: 32
+  y2: 40

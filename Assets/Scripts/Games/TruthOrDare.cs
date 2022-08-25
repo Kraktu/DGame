@@ -10,8 +10,9 @@ public class TruthOrDare : MonoBehaviour
 	//Real Data
 	public TextMeshProUGUI gameText;
 	public Image background;
-	public Color hotBgColor, sexyBgColor, knowledgeBgColor, funBgColor, lifeBgColor;
-	public string namePattern, xPattern, yPattern, factorPattern;
+	public Color hotBgColor, sexyBgColor, knowledgeBgColor, funBgColor, lifeBgColor, sportBgColor,drinkBgColor;
+	public string namePattern, xPattern, yPattern, factorPattern, subjectPattern;
+	public List<string> possibleSubjects = new List<string>();
 
 
 	// SO Data
@@ -22,7 +23,7 @@ public class TruthOrDare : MonoBehaviour
 	public int minLevel, maxLevel;
 	public Theme theme;
 	public string structuredText;
-    public float factor;
+    public float factor1,factor2;
     public int x1, x2, y1, y2;
 
 	private void Start()
@@ -41,7 +42,8 @@ public class TruthOrDare : MonoBehaviour
 		maxLevel = myTodSO.maxLevel;
 		theme = myTodSO.theme;
 		structuredText = myTodSO.structuredText;
-		factor = myTodSO.factor;
+		factor1 = myTodSO.factor1;
+		factor2 = myTodSO.factor2;
 		x1 = myTodSO.x1;
 		x2 = myTodSO.x2;
 		y1 = myTodSO.y1;
@@ -71,7 +73,13 @@ public class TruthOrDare : MonoBehaviour
 			case Theme.Fun:
 				background.color = funBgColor;
 				break;
-			case Theme.Life:
+			case Theme.Experience:
+				background.color = lifeBgColor;
+				break;
+			case Theme.Sport:
+				background.color = lifeBgColor;
+				break;
+			case Theme.Drink:
 				background.color = lifeBgColor;
 				break;
 			default:
@@ -83,6 +91,10 @@ public class TruthOrDare : MonoBehaviour
 	{
 		// Plus tard, faire une sécurité si le nombre de balise name > au nombre de joueur, remove les cartes !
 		List<string> _tempNames = GameManager.Instance.playersName.ToList();
+		while (structuredText.Contains(subjectPattern))
+		{
+			structuredText = ReplaceFirst(structuredText, subjectPattern, possibleSubjects[Random.Range(0, possibleSubjects.Count)]);
+		}
 		while (structuredText.Contains(namePattern))
 		{
 			int _generatedNbr = Random.Range(0, _tempNames.Count);
@@ -95,13 +107,8 @@ public class TruthOrDare : MonoBehaviour
 
 		structuredText = ReplaceNumberInStructure(structuredText,xPattern, x1, x2);
 		structuredText = ReplaceNumberInStructure(structuredText, yPattern, y1, y2);
-		if (factor!=0)
-		{
-			while(structuredText.Contains(factorPattern))
-			{
-			structuredText = ReplaceFirst(structuredText, factorPattern,Mathf.Round(factor*GameManager.Instance.level).ToString());
-			}
-		}
+		structuredText = ReplaceNumberInStructure(structuredText, factorPattern, (int)Mathf.Round(factor1 * GameManager.Instance.level), (int)Mathf.Round(factor2 * GameManager.Instance.level));
+
 	}
 
 	public string ReplaceFirst(string _text, string _search, string _replace)

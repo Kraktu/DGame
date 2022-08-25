@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b770493abf9dab941ada4529bb7377f2, type: 3}
-  m_Name: kissingGame
+  m_Name: Pouce
   m_EditorClassIdentifier: 
   CardName: DefaultSentenceName
   backgroundImage: {fileID: 0}
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
   minLevel: 0
   maxLevel: 10
-  theme: 0
-  structuredText: "[name] embrasse [name] ou bois [factor] gorg\xE9es"
-  factor: 0.8
+  theme: 6
+  structuredText: "[name] tu as un pouce. Le dernier \xE0 t'imiter bois [factor]
+    shot"
+  factor1: 0.1
+  factor2: 0.2
   x1: 0
   x2: 0
   y1: 0

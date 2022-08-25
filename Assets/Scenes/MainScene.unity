@@ -928,13 +928,8 @@ MonoBehaviour:
   drinkRouletteGO: {fileID: 7473859836732813138, guid: 99d2a29f32d807949be827afcaaf7ed3, type: 3}
   bottomsUpGO: {fileID: 7001451732827281827, guid: ff5081c0f87ba3a44b017a8432f1131c, type: 3}
   truthOrDareGO: {fileID: 6771469852224041937, guid: e8654c86c8ea28f479147520711449d3, type: 3}
-  truthOrDareSOs:
-  - {fileID: 11400000, guid: 98d6649b2e46451459d28f7148effaca, type: 2}
-  - {fileID: 11400000, guid: a14d02a92278aac43a379190dc188e21, type: 2}
-  - {fileID: 11400000, guid: 72e6818b00dbf4b4ba090361010ad488, type: 2}
-  - {fileID: 11400000, guid: ea0a1e1e98ced794a93ce20556304cc7, type: 2}
-  - {fileID: 11400000, guid: c56467b01cdb94e419ad9262c954a82b, type: 2}
-  RouletteOccurencePercent: 25
+  truthOrDareSOs: []
+  RouletteOccurencePercent: 60
   isCurrentlyPlaying: 0
   delockTime: 1
   mainGameCanvas: {fileID: 477977825}

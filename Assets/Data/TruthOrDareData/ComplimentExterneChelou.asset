@@ -10,18 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b770493abf9dab941ada4529bb7377f2, type: 3}
-  m_Name: CapitalGame
+  m_Name: ComplimentExterneChelou
   m_EditorClassIdentifier: 
   CardName: DefaultSentenceName
   backgroundImage: {fileID: 0}
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
   minLevel: 0
   maxLevel: 10
-  theme: 2
-  structuredText: "[name] cite [x] capitale. Si tu te trompes, bois [factor] gorg\xE9es.
-    Si tu r\xE9ussi, distribue [factor] gorg\xE9es."
-  factor: 0.5
-  x1: 3
-  x2: 10
+  theme: 4
+  structuredText: "[name] affirme un fait sur lui m\xEAme. Votez tous sauf lui (vrai=>haut,
+    faux =>bas). quoi qu'il arrive la majorit\xE9 distribue chacun [factor] gorg\xE9es
+    \xE0 un membre de la minorit\xE9. Si la majorit\xE9 en plus a raison, les gorg\xE9es
+    sont doubl\xE9es"
+  factor1: 0.1
+  factor2: 0.3
+  x1: 0
+  x2: 0
   y1: 0
   y2: 0

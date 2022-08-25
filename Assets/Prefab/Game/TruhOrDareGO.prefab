@@ -58,10 +58,36 @@ MonoBehaviour:
   knowledgeBgColor: {r: 0, g: 0.036352, b: 0.49056602, a: 1}
   funBgColor: {r: 0.48282623, g: 0.8396226, b: 0.33664113, a: 1}
   lifeBgColor: {r: 0.50225574, g: 0.2285066, b: 0.6132076, a: 1}
+  sportBgColor: {r: 0, g: 0, b: 0, a: 0}
+  drinkBgColor: {r: 0, g: 0, b: 0, a: 0}
   namePattern: '[name]'
   xPattern: '[x]'
   yPattern: '[y]'
   factorPattern: '[factor]'
+  subjectPattern: 
+  possibleSubjects:
+  - Pays
+  - Capitale
+  - "Pok\xE9mon"
+  - Sauce
+  - Marque de voiture
+  - Position Sexuelle
+  - Personnages du Seigneur des Anneaux
+  - Personnages des Simpsons
+  - Philosophe
+  - "Nom de bi\xE8res"
+  - Nom d'alcool
+  - Groupe de musique Rock
+  - Groupe de musique Metal
+  - Rappeur
+  - "Marque de v\xEAtements"
+  - fait concernant [name]
+  - Homme politique
+  - "Jeux vid\xE9os"
+  - Ville Belge
+  - "Ville Am\xE9ricaine"
+  - "drogue (ill\xE9gales)"
+  - nom de festivals
   myTodSO: {fileID: 0}
   CardName: 
   backgroundImage: {fileID: 0}
@@ -70,7 +96,8 @@ MonoBehaviour:
   maxLevel: 0
   theme: 0
   structuredText: 
-  factor: 0
+  factor1: 0
+  factor2: 0
   x1: 0
   x2: 0
   y1: 0
